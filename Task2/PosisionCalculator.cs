@@ -6,14 +6,21 @@ namespace VierticaXmasGame.Task2
 {
     public class PosisionCalculator
     {
-        public double lat = 71.639566053691d;
-        public double lon = -51.1902823595313d;
-        readonly double m = 1d / (2d * Math.PI / 360d * 6378.137d) / 1000d; // 1 meter in degree
+        public double lat;
+        public double lon;
+        readonly double m = 1d / (2d * Math.PI / 360d * 6378.137d) / 1000d; // 1 meter in degrees
 
         public void CalculateFinalPosition(Source data)
         {
             lat = data.canePosition.lat;
             lon = data.canePosition.lon;
+
+            /** Didn't work, was always whrong on the longetute.
+            foreach (SantaMovement movement in data.santaMovements)
+            {
+                UpdatePosition(movement);
+            }
+            **/
 
             foreach (SantaMovement movement in data.santaMovements.Where(x => x.direction == "right" || x.direction == "left"))
             {
@@ -23,8 +30,6 @@ namespace VierticaXmasGame.Task2
             {
                 UpdatePosition(movement);
             }
-            
-            Console.WriteLine($"Lines of Movment: {data.santaMovements.Count}");
         }
 
         private void UpdatePosition(SantaMovement movement)
@@ -48,7 +53,7 @@ namespace VierticaXmasGame.Task2
                 default:
                     break;
             }
-            Console.WriteLine($"Moved: {meters} meters {movement.direction} - New Location: {lat}, {lon}");
+            //Console.WriteLine($"Moved: {meters} meters {movement.direction} - New Location: {lat}, {lon}");
         }
 
         private double GetMeters(SantaMovement movement)
@@ -74,7 +79,7 @@ namespace VierticaXmasGame.Task2
             lat += deltaLat * m;
         }
 
-        public void NewLon(double deltaLon)
+        private void NewLon(double deltaLon)
         {
             lon += deltaLon * m / Math.Cos(lat * (Math.PI / 180d));
         }
