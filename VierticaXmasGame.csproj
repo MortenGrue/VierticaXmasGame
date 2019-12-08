@@ -46,6 +46,7 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -58,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpHelpers\AzureHttpCaller.cs" />
     <Compile Include="Models\CreateAccount.cs" />
     <Compile Include="Models\Creds.cs" />
     <Compile Include="Models\RescueResponseModel.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Task2\ElastiscRepo.cs" />
     <Compile Include="Task2\PosisionCalculator.cs" />
     <Compile Include="Task2\SendRescue.cs" />
+    <Compile Include="Task3\FindRaindeer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

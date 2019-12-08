@@ -1,6 +1,7 @@
 ﻿using System;
 using VierticaXmasGame.Task1;
 using VierticaXmasGame.Task2;
+using VierticaXmasGame.Task3;
 
 namespace VierticaXmasGame
 {
@@ -23,7 +24,9 @@ namespace VierticaXmasGame
 
             sendRescue.MakeHttpCall(creds.creds, posisionCalculator); //Task2
 
+            FindRaindeer findRaindeer = new FindRaindeer(sendRescue.rescueResponse);
 
+            findRaindeer.calculateRaindeer();
 
             Console.ReadLine();
         }
